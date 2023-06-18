@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="10.286 215.934 460.495 68.966" xmlns="http://www.w3.org/2000/svg">
+  <path style="opacity: 1; fill-opacity: 1; stroke: rgb(77, 77, 77); stroke-width: 3.02882; stroke-linecap: square; stroke-linejoin: bevel; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 0; paint-order: stroke markers; fill: rgb(26, 26, 26);" d="m 35.683317,147.58129 h 5.338836 l 0.04916,-11.39551 7.845152,6.25766 7.250113,-6.19179 v 11.32964 h 5.133447 l -0.198437,-24.12617 h -0.92218 l -11.394684,9.50304 -11.977502,-9.50304 h -1.123909 z" id="path193087" transform="matrix(2.844824, 0, 0, 2.844824, -91.226499, -134.943102)"/>
+  <path style="fill-opacity: 1; stroke: none; stroke-width: 4.98369; stroke-linecap: square; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 0; fill: rgb(212, 175, 55);" d="m 118.67302,147.58129 -0.0473,-24.12617 h 4.91073 l 14.77663,15.0424 v -15.0424 h 5.36037 l -0.0667,24.12617 h -5.29381 l -14.68726,-14.99736 0.0827,14.99736 z" id="path78984" transform="matrix(2.844824, 0, 0, 2.844824, -91.226499, -134.943102)"/>
+  <g id="g202294" transform="matrix(2.844824, 0, 0, 2.844824, -91.226499, -134.943102)">
+    <g id="g125700" transform="matrix(1.883091,0,0,1.883091,-147.11019,-122.29844)">
+      <rect style="fill-opacity: 1; stroke: none; stroke-width: 44.3; stroke-linecap: square; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 0; paint-order: stroke markers; fill: rgb(212, 175, 55);" id="rect122057" width="12.42541" height="12.811999" x="155.59612" y="130.50542" ry="2.8293722"/>
+    </g>
+  </g>
+  <g id="g192479" style="fill:#000000" transform="matrix(2.844824, 0, 0, 2.844824, -91.226499, -134.943102)">
+    <path style="fill-opacity: 1; stroke-width: 0.156559; fill: rgb(26, 26, 26);" d="m 73.075767,129.46787 3.084942,-6.01275 15.402903,24.12616 -7.305057,1e-5 z m 20.357058,-5.96844 18.153875,-0.0443 c 2.51975,0 5.10831,2.30106 5.10934,4.54683 l 0.007,15.31115 c 0,2.76843 -2.5827,4.26791 -5.11644,4.26791 l -18.456957,-3e-5 z m 17.836555,14.50438 0.0123,-4.67182 c 0.0381,-1.84726 -0.82143,-4.05852 -3.56324,-4.05852 h -8.773161 v 12.28281 l 8.773161,-0.0331 c 1.2813,-0.005 3.46647,-1.31834 3.55089,-3.5194 z" id="path74982"/>
+    <path style="opacity: 1; fill-opacity: 1; stroke: rgb(77, 77, 77); stroke-width: 6.08301; stroke-linecap: square; stroke-linejoin: bevel; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 0; paint-order: stroke markers; fill: rgb(26, 26, 26);" d="m 75.254355,136.50383 -3.252003,-5.26745 -8.887367,16.27221 6.088978,0.0727" id="path155037"/>
+  </g>
+  <g id="g165902" transform="matrix(1.326227, 0, 0, 1.251661, -22.654411, 11.933914)" style="fill:#d4aa00;fill-opacity:1">
+    <path style="opacity: 1; fill-opacity: 1; stroke: rgb(77, 77, 77); stroke-width: 6.08301; stroke-linecap: square; stroke-linejoin: bevel; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 0; paint-order: stroke markers; fill: rgb(212, 175, 55);" d="m 309.74356,218.08281 20.58873,-21.3651 8.73125,8.86354 -12.72076,12.50156 z" id="path165160"/>
+    <path style="opacity: 1; fill-opacity: 1; stroke: rgb(77, 77, 77); stroke-width: 6.08301; stroke-linecap: square; stroke-linejoin: bevel; stroke-miterlimit: 4; stroke-dasharray: none; stroke-opacity: 0; paint-order: stroke markers; fill: rgb(212, 175, 55);" d="m 319.35208,162.98333 v 18.91771 l 35.04669,36.18177 h 17.66094 l -21.38758,-22.52266 14.05599,-14.05599 v -18.25625 l -22.42344,22.42344" id="path165195"/>
+  </g>
+</svg>

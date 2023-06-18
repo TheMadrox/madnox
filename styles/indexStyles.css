@@ -1,0 +1,373 @@
+@font-face {
+    font-family: "caviarDreams";
+    src: url(/src/fonts/caviarDreams.ttf);
+}
+@font-face{
+    font-family: "quantum";
+    src: url(/src/fonts/quantum.otf);
+}
+
+body{
+    background-color: #1A1A1A;
+    color: #F7F7F7;
+    font-family: caviarDreams;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+nav{
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 1px 2px 1px rgba(255, 255, 255, 0.2);
+    filter: blur(1);
+    position: fixed;
+    top: 0;
+    height: 10vh;
+    z-index:3;
+    backdrop-filter: blur(3px);   
+    font-size: .8rem;
+}
+
+nav ul li{
+    list-style-type: none;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+nav ul li a{
+    position: relative;
+    overflow: hidden;
+    padding: .1rem;
+    color: #F7F7F7;
+    text-decoration: none;
+}
+nav ul li a::before{
+    content: '';
+    border-bottom: .2rem solid #D4AF37;
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    transition: all 0.5s linear;
+}
+nav ul li a.activo{
+    text-decoration: none;
+    color:#D4AF37;
+}
+nav ul li a.activo::before{
+    left: 0;
+}
+
+#botonContactanosNav{
+    background-color: #D4AF37;
+    border-radius: 10px;
+    padding: .5rem;
+}
+
+#botonMenu{
+    font-size: 6vh;
+    color: #D4AF37;
+}
+
+#imgLogo{
+    height: 2rem;
+}
+#tipografiaLogo{
+    height: 1.5rem;
+}
+
+
+#contenedorInicial{
+    position: relative;
+    z-index: 2;
+}
+
+#textoInicial{
+    font-size: 3rem;
+}
+#subtextoInicial{
+    font-size: 1.5rem;
+}
+
+#contenedorQuienesSomosInicial{
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.contenedorBlanco{
+    height: 100vh;
+    background-color: #FFFFFF;
+}
+.contenedorNegro{
+    height: 100vh;
+    background-color: #000000;
+}
+
+.tarjetaConocenos{
+    background-color: #F7F7F7;
+    color: #000000;
+    margin: 0px;
+    padding: 0px;
+}
+.tarjetaConocenos h2{
+    background-color: #D4AF37;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 1rem;
+}
+.tarjetaConocenos p{
+    background-color: #FFF2CC;
+    font-size: .9rem;
+    margin: 0;
+    padding:1rem;
+}
+
+.bordeAmarilloTarjetaConocenos{
+    background-color: #D4AF37;
+    height: 3.8rem;
+}
+
+.bordeTarjetaConocenos{
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
+    background-color: #FFF2CC;
+    height: auto;
+    width: 8rem;
+    overflow: hidden;
+}
+.bordeTarjetaConocenosL{
+    border-top-left-radius: 100%;
+    border-bottom-left-radius: 100%;
+    background-color: #FFF2CC;
+    height: auto;
+    width: 8rem;
+    overflow:hidden;
+}
+
+#contenedorConocenos{
+    z-index:1; 
+    background-color:#F7F7F7;
+    color:#1A1A1A;
+}
+.botonConocenos{
+    border-bottom: 1px solid rgba(0,0,0,0.175);
+    background: linear-gradient(to right, #D4AF37 50%,#F7F7F7 50%);
+    background-size: 200%;
+    background-position: 95%;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    padding: 1rem;
+    text-decoration: none;
+    color: #1A1A1A;
+    font-size: 1.1rem;
+    transition: all .5s linear;
+    border-radius: 10px;
+}
+.botonConocenos:hover{
+    background-position: 0%;
+}
+.botonConocenos.activo{
+    background-position: 0%;
+}
+
+.tituloConocenos{
+    text-align: center;
+    font-style: italic;
+    font-size: 2rem;
+}
+
+#textoLogo{
+    font-family: quantum;
+}
+
+.titulo{
+    font-size: 3.2rem;
+    text-align: center;
+    position: relative;
+    margin-bottom: 1.6rem;
+}
+.titulo::before{
+    content: '';
+    position: absolute;
+    bottom: -1.6rem;
+    left: 0%;
+    width: 100%;
+    height: 1.5rem;
+    background-color: #D4AF37;
+    border-radius: 1.5rem;
+}
+
+.tarjetaPrecio{
+    border-radius: 10px;
+    border-right: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    background-color: #F7F7F7;
+    color: #000000;
+}
+
+.infoPaquete.check i{
+    color: #00C957;
+    font-size: 1.5rem;
+}
+.infoPaquete.cross i{
+    color: #FF2400;
+    font-size: 1.5rem;
+}
+
+.infoPaquete p{
+    font-size: 1.1rem;
+}
+
+.tituloPlan.basico{
+    background-color: #2196F3 ;
+}
+.tituloPlan.avanzado{
+    background-color: #FF9800;
+}
+.tituloPlan.premium{
+    background-color: #9C27B0 ;
+}
+
+#contenedorNuestrosPrecios button{
+    color:#CCCCCC;
+}
+
+.tituloPlan{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+hr{
+    margin: 0;
+}
+
+#botonSubir{
+    background-color: #000000;
+    border-radius: 100%;
+    width:9vh;
+    height: 9vh;
+    font-size: 2rem;
+}
+
+#contenedorBotonSubir{
+    position:fixed;
+    bottom: 0vh;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    z-index:3;
+}
+
+#fondoContenedorInicial{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 100%;
+    filter: opacity(0.4);
+}
+
+.fondoInicial{
+    width: 50%;
+    height: 100%;
+    background-image: url(/src/img/ondasBg.svg);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#fondoInicial1{
+
+}
+#fondoInicial2{
+    transform:rotateY(180deg);
+}
+#fondoInicial3{
+    transform: rotate(180deg);
+}
+#fondoInicial4{
+    transform: rotateX(180deg);
+}
+
+#barraConoceMas{
+    background-color: #D4AF37;
+    position: relative;
+    z-index: 2;
+}
+
+#formularioContacto{
+    background-color: #F7F7F7;
+    color: #1A1A1A;
+    border-radius: 10px;
+}
+
+footer{
+    background-color: #333333;
+    position: relative;
+    z-index: 4;
+}
+
+#enlacesFooter h4{
+    font-size: 1rem;
+}
+#enlacesFooter p{
+    font-size: .75rem;
+}
+
+.redesSociales i{
+    font-size: 2rem;
+}
+
+#logoFooter{
+    height: 2rem;
+}
+#textoLogoFooter{
+    height: 2rem;
+}
+#enlacesPaginaFooter{
+    font-size: .80rem;
+}
+#copyLogo{
+    font-size: .7rem;
+}
+
+#menuDesplegable.desplegado{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    width: 100%;
+    height: 50%;
+    opacity: 0;
+    z-index: 1;
+    transition: all 0.5s linear;
+}
+#menuDesplegable.desplegado.activo{
+    bottom: -50%;
+    opacity: 1;
+}
+
+/*Pantalla Baja*/
+@media(max-width:767px){
+    #imagenContacto{
+        height: 30vh;
+        width: 100%;
+    }
+    #contenedorImagenContacto{
+        width: 100%;
+    }
+    #imgLogo{
+        height: 1.5rem;
+    }
+    #tipografiaLogo{
+        height: 1.3rem;
+    }
+}
+@media(min-width:769px){    
+    #contenedorBotonesConocenos{
+        border-right: 1px solid rgba(0, 0, 0, 0.175);
+    }
+}
+/*Pantalla Alta*/
+@media(min-width:991px){
+    #textoInicial{
+        font-size: 3.5rem;
+    }
+}
