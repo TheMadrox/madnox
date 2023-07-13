@@ -7,17 +7,24 @@
     src: url(/src/fonts/quantum.otf);
 }
 
+button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}  
+
 body{
     background-color: #1A1A1A;
     color: #F7F7F7;
     font-family: caviarDreams;
-    font-weight: 500;
+    font-weight: 300;
     letter-spacing: 2px;
+    text-shadow: .2px .2px;
 }
 
-nav{
+#nav2{
     background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0px 1px 2px 1px rgba(255, 255, 255, 0.2);
     filter: blur(1);
     position: fixed;
     top: 0;
@@ -25,21 +32,26 @@ nav{
     z-index:3;
     backdrop-filter: blur(3px);   
     font-size: .8rem;
+    transition: all 0.2s ease-in-out;
+}
+#nav2.oscuro{
+    background-color: rgba(0,0,0,0.2);
 }
 
-nav ul li{
+#nav2 ul li{
     list-style-type: none;
     margin-left: 1rem;
     margin-right: 1rem;
 }
-nav ul li a{
+#nav2 ul li button{
     position: relative;
     overflow: hidden;
     padding: .1rem;
     color: #F7F7F7;
     text-decoration: none;
+    font-size: .9rem;
 }
-nav ul li a::before{
+#nav2 ul li button::before{
     content: '';
     border-bottom: .2rem solid #D4AF37;
     border-radius: 10px;
@@ -49,18 +61,34 @@ nav ul li a::before{
     left: -100%;
     transition: all 0.5s linear;
 }
-nav ul li a.activo{
+#nav2 ul li button.activo{
     text-decoration: none;
     color:#D4AF37;
 }
-nav ul li a.activo::before{
+#nav2 ul li button.activo::before{
     left: 0;
+}
+#nav2 ul li button:hover::before{
+    content: '';
+    border-bottom: .2rem solid #D4AF37;
+    border-radius: 10px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    transition: all 0.5s linear;
+}
+#nav2 ul li button:hover{
+    color:#D4AF37;
 }
 
 #botonContactanosNav{
     background-color: #D4AF37;
     border-radius: 10px;
     padding: .5rem;
+    color: #F7F7F7;
+    text-decoration: none;
+    font-size: 1rem;
 }
 
 #botonMenu{
@@ -85,7 +113,8 @@ nav ul li a.activo::before{
     font-size: 3rem;
 }
 #subtextoInicial{
-    font-size: 1.5rem;
+    position: relative;
+    animation: leftToRightAnimacion 2s ease-out;
 }
 
 #contenedorQuienesSomosInicial{
@@ -150,7 +179,7 @@ nav ul li a.activo::before{
 }
 .botonConocenos{
     border-bottom: 1px solid rgba(0,0,0,0.175);
-    background: linear-gradient(to right, #D4AF37 50%,#F7F7F7 50%);
+    background: linear-gradient(to right, #1A1A1A 50%,#F7F7F7 50%);
     background-size: 200%;
     background-position: 95%;
     margin-top: .5rem;
@@ -161,12 +190,15 @@ nav ul li a.activo::before{
     font-size: 1.1rem;
     transition: all .5s linear;
     border-radius: 10px;
+    text-align: center;
 }
 .botonConocenos:hover{
     background-position: 0%;
+    color:#F7F7F7;
 }
 .botonConocenos.activo{
     background-position: 0%;
+    color:#F7F7F7;
 }
 
 .tituloConocenos{
@@ -174,26 +206,37 @@ nav ul li a.activo::before{
     font-style: italic;
     font-size: 2rem;
 }
+.tituloConocenos.animacion{
+    animation: fadeInAnimacion 1s ease-in;
+}
+.imagenConocenos.animacion{
+    animation: fadeInAnimacion 1s ease-in;
+}
 
 #textoLogo{
     font-family: quantum;
 }
-
 .titulo{
     font-size: 3.2rem;
     text-align: center;
     position: relative;
     margin-bottom: 1.6rem;
+    opacity: 1;
+    margin-top: 1.6rem;
 }
-.titulo::before{
+.titulo.animacion{
+    animation: bouncingAnimacion 1s linear;
+}
+.separadorTitulo{
     content: '';
     position: absolute;
-    bottom: -1.6rem;
-    left: 0%;
+    transform: translate(0%,0%);
     width: 100%;
     height: 1.5rem;
-    background-color: #D4AF37;
-    border-radius: 1.5rem;
+    left:0;
+    top:100%;
+    background-image: url(/src/img/separadorSeccion.svg);
+    background-size: 100% 100%;
 }
 
 .tarjetaPrecio{
@@ -290,6 +333,12 @@ hr{
     background-color: #D4AF37;
     position: relative;
     z-index: 2;
+    transition: all .2s linear;
+    font-size: 1.05rem;
+}
+#barraConoceMas:hover{
+    background-color: #B3942D;
+    font-size: 1.1rem;
 }
 
 #formularioContacto{
@@ -328,20 +377,125 @@ footer{
     font-size: .7rem;
 }
 
+#menuDesplegable{
+    bottom: 25%;
+    left: 0;
+}
 #menuDesplegable.desplegado{
     position: absolute;
     bottom: 0;
     left: 0;
     background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 2px 1px 1px rgba(255, 255, 255, 0.2);
     width: 100%;
     height: 50%;
     opacity: 0;
     z-index: 1;
-    transition: all 0.5s linear;
+    transition: all 0.5s ease-in-out;
 }
 #menuDesplegable.desplegado.activo{
     bottom: -50%;
     opacity: 1;
+}
+
+.botonConoceEquipo{
+    background-color: #D4AF37;
+    border-radius: .7rem;
+    padding: .7rem;
+    color: #F7F7F7;
+    text-decoration: none;
+    text-align: center;
+}
+
+#textoTypeWrite{
+    color:#D4AF37;
+    font-size: 130%;
+}
+#punteroTypeWrite{
+    animation: punteroTypeWriter 0.4s infinite;
+}
+
+#contenedorInformacionConocenos{
+    border-left: #D4AF37 2px solid;
+    overflow: hidden;
+}
+
+.textoConocenos{
+    margin: 0;
+    font-size: 0.9rem;
+}
+.textoConocenos.animacion{
+    animation: leftToRightAnimacion 1s ease-out;
+}
+
+#botonEnviarFormulario{
+    background-color: #D4AF37;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    width: 100%;
+    font-size: 2rem;
+}
+
+textarea{
+    border-radius: 10px;
+}
+
+@keyframes leftToRightAnimacion{
+    0%{
+        transform: translateX(-100%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+
+@keyframes punteroTypeWriter{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes bouncingAnimacion{
+    0%{
+        opacity: 0;
+        transform:translate(-100%,-100%);
+    }
+    25%{
+        transform:translate(-75%,0%);
+        opacity: 1;
+    }
+    37.5%{
+        transform:translate(-62.5%,-50%);
+    }
+    50%{
+        transform:translate(-50%,0%);
+    }
+    62.5%{
+        transform:translate(-37.5%,-25%);
+    }
+    75%{
+        transform:translate(-25%,0%);
+    }
+    87.5%{
+        transform:translate(-12.5%,-12.5%);
+    }
+    100%{
+        transform:translate(0%,0%);
+    }
+}
+
+@keyframes fadeInAnimacion{
+    0%{
+        opacity: 0;
+        transform: translateY(2%);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
 }
 
 /*Pantalla Baja*/
@@ -360,10 +514,8 @@ footer{
         height: 1.3rem;
     }
 }
-@media(min-width:769px){    
-    #contenedorBotonesConocenos{
-        border-right: 1px solid rgba(0, 0, 0, 0.175);
-    }
+@media(min-width:769px){
+
 }
 /*Pantalla Alta*/
 @media(min-width:991px){

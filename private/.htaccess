@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteRule ^clientes/contactar$ registroClientes.php
+RewriteRule ^clientes/contactar/(\w+)$ muestraCliente?claveCliente=$1 [L]
