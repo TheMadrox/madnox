@@ -46,10 +46,10 @@
                     </div>
                     <div id="menuDesplegable" class="d-inline-flex w-100 h-sm-50 align-items-center justify-content-center" style="">
                         <ul class="m-0 p-0 d-inline-flex">
-                            <li><button type="button" class="activo">Inicio</button></li>
-                            <li><button type="button">Conócenos</button></li>
-                            <li><button type="button">Proyectos</button></li>
-                            <li><button type="button">Paquetes</button></li>
+                            <li><button data-seccion="0" type="button" class="activo">Inicio</button></li>
+                            <li><button data-seccion="1" type="button">Conócenos</button></li>
+                            <li><button data-seccion="2" type="button">Proyectos</button></li>
+                            <li><button data-seccion="3" type="button">Paquetes</button></li>
                         </ul>
                     </div>
                     <div style="z-index:2;width:15rem;" class="position-relative ms-auto d-inline-flex align-items-center justify-content-end pe-md-2">
@@ -72,7 +72,7 @@
                     <source src="/src/img/fondoDisco.webm" type="video/webm">
                 </video>
             </div>
-            <section id="contenedorContenedorInicial"class="seccionesOscuras contenedorContenido position-relative d-flex flex-column" style="height:100vh;">
+            <section id="contenedorContenedorInicial" data-seccion="0" style="height:100vh" class="seccionesOscuras contenedorContenido position-relative d-flex flex-column">
                 <div id="contenedorInicial" class="d-flex flex-column justify-content-center flex-grow-1">
                     <div class="container-fluid mt-5">
                         <div class="row mt-5">
@@ -107,7 +107,7 @@
                     </div>
                 </button>
             </section>
-            <section id="contenedorConocenos" class="seccionesBlancas contenedorContenido py-3 container-fluid position-relative">
+            <section id="contenedorConocenos" data-seccion="1" class="seccionesBlancas contenedorContenido container-fluid position-relative">
                 <div class="d-flex justify-content-center">
                     <h2 class="titulo tituloFuente tituloSeparadorNegro">Conócenos</h2>
                 </div>
@@ -178,7 +178,7 @@
                     <div class="row">
                         <div class="col-12 col-lg-6">
                             <h3 class="text-center tituloFuente">Diseño</h3>
-                            <div class="row my-4">
+                            <div class="row my-4 rowHerramientas">
                                 <div class="col-4 d-flex flex-column align-items-center">
                                     <h4>Figma</h4>
                                     <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="1667" height="2500"><style type="text/css">.st0{fill:#0acf83}.st1{fill:#a259ff}.st2{fill:#f24e1e}.st3{fill:#ff7262}.st4{fill:#1abcfe}</style><title>Figma.logo</title><desc>Created using Figma</desc><path id="path0_fill" class="st0" d="M50 300c27.6 0 50-22.4 50-50v-50H50c-27.6 0-50 22.4-50 50s22.4 50 50 50z"/><path id="path1_fill" class="st1" d="M0 150c0-27.6 22.4-50 50-50h50v100H50c-27.6 0-50-22.4-50-50z"/><path id="path1_fill_1_" class="st2" d="M0 50C0 22.4 22.4 0 50 0h50v100H50C22.4 100 0 77.6 0 50z"/><path id="path2_fill" class="st3" d="M100 0h50c27.6 0 50 22.4 50 50s-22.4 50-50 50h-50V0z"/><path id="path3_fill" class="st4" d="M200 150c0 27.6-22.4 50-50 50s-50-22.4-50-50 22.4-50 50-50 50 22.4 50 50z"/></svg>
@@ -191,7 +191,7 @@
                                     <h4></h4>
                                 </div>
                             </div>
-                            <div class="row my-4">
+                            <div class="row my-4 rowHerramientas">
                                 <div class="col-4 d-flex flex-column align-items-center">
                                     <h4>Illustrator</h4>
                                     <img class="svgLogo" src="/src/img/illustratorLogo.svg" alt="illustrator logo">
@@ -208,7 +208,7 @@
                         </div>
                         <div class="col-12 col-lg-6" id="contenedorHerramientasDesarrollo">
                             <h3 class="text-center tituloFuente">Desarrollo</h3>
-                            <div class="row my-4">
+                            <div class="row my-4 rowHerramientas">
                                 <div class="col-4 d-flex flex-column align-items-center">
                                     <h4>HTML</h4>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 452 520">
@@ -235,7 +235,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="row my-4">
+                            <div class="row my-4 rowHerramientas">
                                 <div class="col-4 d-flex flex-column align-items-center">
                                     <h4>Bootstrap</h4>
                                     <svg width="2500" height="2500" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><path d="M0 222.991C0 241.223 14.779 256 33.009 256H222.99C241.223 256 256 241.221 256 222.991V33.01C256 14.777 241.221 0 222.991 0H33.01C14.777 0 0 14.779 0 33.009V222.99z" fill="#563D7C"/><path d="M106.158 113.238V76.985h31.911c3.04 0 5.97.253 8.792.76 2.822.506 5.319 1.41 7.49 2.713 2.17 1.303 3.907 3.112 5.21 5.427 1.302 2.316 1.954 5.283 1.954 8.9 0 6.513-1.954 11.217-5.862 14.111-3.907 2.895-8.9 4.342-14.979 4.342h-34.516zM72.075 50.5v155h75.112c6.947 0 13.713-.868 20.298-2.605 6.585-1.737 12.446-4.414 17.584-8.032 5.137-3.618 9.226-8.286 12.265-14.002 3.04-5.717 4.559-12.483 4.559-20.298 0-9.697-2.352-17.982-7.055-24.856-4.704-6.875-11.832-11.687-21.384-14.437 6.947-3.328 12.194-7.598 15.74-12.808 3.545-5.21 5.318-11.722 5.318-19.538 0-7.236-1.194-13.314-3.582-18.235-2.388-4.92-5.753-8.864-10.095-11.831-4.341-2.967-9.551-5.102-15.63-6.404-6.078-1.303-12.808-1.954-20.189-1.954H72.075zm34.083 128.515v-42.549h37.121c7.381 0 13.315 1.7 17.802 5.102 4.486 3.401 6.73 9.081 6.73 17.041 0 4.053-.688 7.381-2.063 9.986-1.375 2.605-3.22 4.668-5.536 6.187-2.315 1.52-4.993 2.605-8.032 3.257-3.04.65-6.223.976-9.552.976h-36.47z" fill="#FFF"/></svg>
@@ -351,7 +351,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <div class="row my-4">
+                            <div class="row my-4 rowHerramientas">
                                 <div class="col-6 d-flex flex-column align-items-center">
                                     <h4>SQL</h4>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="256" height="133" viewBox="0 0 204.8 105.765"><path d="M0 96.334h6.747V69.7l10.445 23.227c1.232 2.8 2.92 3.806 6.228 3.806s4.93-.995 6.164-3.806L40.03 69.7v26.644h6.748v-26.6c0-2.595-1.04-3.85-3.18-4.498-5.125-1.6-8.564-.216-10.12 3.244l-10.25 22.923L13.3 68.48c-1.492-3.46-4.995-4.844-10.12-3.244C1.038 65.885 0 67.14 0 69.734v26.6zm52.386-21.686h6.745v14.68c-.063.798.256 2.67 3.952 2.727 1.886.03 14.554 0 14.672 0v-17.48h6.76c.03 0-.007 23.834-.006 23.936.037 5.878-7.294 7.155-10.672 7.254H52.533v-4.54l21.342-.001c4.342-.46 3.83-2.617 3.83-3.344v-1.77h-14.34c-6.672-.06-10.92-2.973-10.973-6.323-.005-.3.144-14.995-.004-15.14z" fill="#00618a"/><path d="M89.716 96.334h19.398c2.27 0 4.477-.475 6.23-1.298 2.92-1.34 4.347-3.157 4.347-5.536v-4.93c0-1.947-1.622-3.763-4.8-4.974-1.687-.65-3.763-.995-5.774-.995h-8.175c-2.724 0-4.022-.822-4.346-2.638-.065-.216-.065-.4-.065-.606v-3.07c0-.173 0-.347.065-.563.324-1.384 1.038-1.774 3.438-2 .195 0 .454-.044.65-.044h19.268v-4.497h-18.944c-2.725 0-4.152.173-5.45.562C91.532 67 89.78 69 89.78 72.46v3.936c0 3.028 3.44 5.623 9.212 6.228.65.043 1.298.086 1.946.086h7.007c.26 0 .52 0 .714.044 2.14.173 3.05.562 3.698 1.34.4.4.52.78.52 1.2v3.936c0 .476-.324 1.082-.973 1.6-.584.52-1.557.865-2.855.952-.26 0-.454.043-.713.043h-18.62v4.498zm72.064-7.828c0 4.628 3.438 7.223 10.38 7.742a29.45 29.45 0 0 0 1.946.086h17.582v-4.498h-17.712c-3.957 0-5.45-.995-5.45-3.374v-23.27h-6.747v23.312zm-37.785.234V72.705c0-4.074 2.86-6.545 8.516-7.325a12.94 12.94 0 0 1 1.821-.13h12.807a13.87 13.87 0 0 1 1.886.13c5.656.78 8.516 3.25 8.516 7.325V88.74c0 3.305-1.215 5.074-4.015 6.227l6.646 6h-7.834l-5.377-4.854-5.413.343h-7.216c-1.235 0-2.535-.174-3.966-.564-4.3-1.17-6.37-3.424-6.37-7.152zm7.283-.4c0 .217.065.433.13.694.4 1.864 2.145 2.904 4.8 2.904h6.13l-5.63-5.083h7.834l4.9 4.433c.905-.482 1.5-1.22 1.7-2.167.065-.216.065-.433.065-.65V73.096c0-.173 0-.4-.065-.607-.4-1.733-2.146-2.73-4.746-2.73H136.22c-3 0-4.94 1.3-4.94 3.337v15.256z" fill="#e48e00"/><g fill="#00618a"><path d="M197.624 57.73c-4.147-.112-7.316.273-10.024 1.415-.77.325-1.997.333-2.123 1.298.423.443.49 1.105.825 1.65.647 1.047 1.74 2.45 2.713 3.184 1.064.803 2.16 1.663 3.303 2.36 2.03 1.238 4.296 1.945 6.25 3.184 1.152.73 2.296 1.65 3.42 2.476.555.408.93 1.042 1.65 1.297v-.118c-.38-.483-.477-1.147-.825-1.65l-1.533-1.533c-1.5-2-3.402-3.737-5.425-5.19-1.613-1.158-5.224-2.722-5.897-4.6l-.118-.118c1.144-.13 2.483-.543 3.54-.825 1.773-.475 3.358-.353 5.19-.825l2.477-.708v-.472c-.926-.95-1.586-2.207-2.595-3.066-2.64-2.25-5.523-4.495-8.49-6.37-1.646-1.04-3.68-1.714-5.425-2.595-.587-.296-1.618-.45-2.005-.944-.916-1.168-1.415-2.65-2.122-4-1.48-2.85-2.934-5.964-4.246-8.963-.895-2.045-1.48-4.062-2.594-5.897-5.355-8.804-11.12-14.118-20.048-19.34-1.9-1.11-4.187-1.55-6.605-2.123l-3.892-.236c-.792-.33-1.616-1.3-2.36-1.77-2.958-1.87-10.545-5.933-12.736-.6-1.383 3.373 2.067 6.664 3.302 8.374.866 1.2 1.976 2.543 2.594 3.892.407.886.478 1.775.826 2.713.857 2.3 1.603 4.823 2.712 6.958.56 1.08 1.178 2.218 1.887 3.184.435.593 1.18.854 1.297 1.77-.728 1.02-.77 2.6-1.18 3.892-1.843 5.812-1.148 13.035 1.533 17.337.823 1.32 2.76 4.152 5.425 3.066 2.33-.95 1.8-3.89 2.477-6.486.15-.59.058-1.02.354-1.415v.118l2.123 4.245c1.57 2.53 4.36 5.175 6.722 6.96 1.225.925 2.2 2.525 3.774 3.066v-.118h-.118c-.307-.48-.787-.677-1.18-1.06-.923-.905-1.95-2.03-2.713-3.066-2.15-2.918-4.048-6.11-5.778-9.435-.826-1.587-1.545-3.338-2.24-4.953-.268-.623-.265-1.564-.825-1.887-.763 1.184-1.887 2.14-2.477 3.538-.944 2.234-1.066 4.958-1.415 7.784-.207.074-.115.023-.236.118-1.642-.396-2.22-2.087-2.83-3.538-1.544-3.67-1.83-9.576-.472-13.798.35-1.092 1.94-4.534 1.297-5.543-.307-1.007-1.32-1.6-1.887-2.36-.7-.95-1.402-2.204-1.887-3.302-1.264-2.86-1.854-6.07-3.184-8.963-.636-1.382-1.71-2.78-2.594-4-.978-1.36-2.073-2.364-2.83-4-.27-.585-.636-1.52-.236-2.123a.93.93 0 0 1 .708-.708c.684-.527 2.59.175 3.302.472 1.89.786 3.47 1.534 5.072 2.595.77.5 1.547 1.496 2.476 1.77h1.06c1.66.382 3.52.12 5.07.59 2.742.833 5.198 2.13 7.43 3.538 6.798 4.292 12.355 10.402 16.157 17.7.612 1.173.876 2.294 1.415 3.538 1.087 2.5 2.456 5.093 3.538 7.547 1.08 2.45 2.13 4.92 3.656 6.958.802 1.07 3.9 1.646 5.307 2.24.987.417 2.603.852 3.538 1.415 1.785 1.077 3.515 2.36 5.19 3.54.837.59 3.41 1.883 3.538 2.948z"/><path d="M144.91 12.798c-.865-.016-1.476.094-2.123.236v.118h.118c.412.848 1.14 1.393 1.65 2.123l1.18 2.476.118-.118c.73-.515 1.065-1.338 1.06-2.595-.293-.308-.336-.694-.59-1.062-.337-.49-1-.768-1.415-1.18z" fill-rule="evenodd"/></g><path d="M194.855 91.708c0 2.97 2.347 4.972 4.972 4.972s4.972-2.002 4.972-4.972-2.347-4.972-4.972-4.972-4.972 2.002-4.972 4.972zm8.83 0c0 2.254-1.723 3.938-3.86 3.938-2.16 0-3.86-1.684-3.86-3.938s1.698-3.938 3.86-3.938c2.135 0 3.86 1.684 3.86 3.938zm-2.52 2.838h1.113l-1.63-2.492c.875-.093 1.537-.518 1.537-1.552 0-1.154-.73-1.63-2.134-1.63h-2.215v5.675h.955v-2.453h.888l1.485 2.453zm-2.374-3.25v-1.63h1.1c.57 0 1.26.106 1.26.77 0 .795-.623.862-1.34.862h-1.02z" fill="#e48e00" fill-rule="evenodd"/></svg>
@@ -365,12 +365,12 @@
                     </div>
                 </div>
             </section>
-            <section id="contenedorProyectos" style="height:100vh;z-index:1; background-color:#1A1A1A;"class="seccionesOscuras contenedorContenido position-relative">
+            <section id="contenedorProyectos" data-seccion="2" style="height:100vh;z-index:1; background-color:#1A1A1A;"class="seccionesOscuras contenedorContenido position-relative">
                 <div class="d-flex justify-content-center">
                     <h2 class="titulo tituloFuente tituloSeparadorBlanco">Nuestros clientes</h2>
                 </div>
             </section>
-            <section id="contenedorNuestrosPrecios" class="seccionesBlancas contenedorContenido pt-3" style="position:relative; z-index:1; background-color:#1A1A1A;">
+            <section id="contenedorNuestrosPrecios" data-seccion="3" class="seccionesBlancas contenedorContenido" style="position:relative; z-index:1; background-color:#1A1A1A;">
                 <div style="position:relative; z-index:2;">
                     <div class="container">
                         <div class="row">
@@ -527,8 +527,8 @@
 
                 </div>
             </section>
-            <section id="contenedorContactanos" class="seccionesBlancas contenedorContenido container-fluid p-0" style="background-color:#1A1A1A;">
-                <div class="py-4" style="position:relative; z-index:1;background-color:#1A1A1A;">
+            <section id="contenedorContactanos" data-seccion="4" class="px-0 seccionesBlancas contenedorContenido container-fluid" style="background-color:#1A1A1A;">
+                <div id="parteInicialContactanos" class="pb-4" style="position:relative; z-index:1;background-color:#1A1A1A;">
                     <div class="d-flex justify-content-center">
                         <h2 class="titulo tituloFuente tituloSeparadorBlanco">Contactanos</h2>
                     </div>
@@ -553,7 +553,7 @@
                 </div> 
             </section>
         </main>
-        <footer>
+        <footer class="">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-md-4 p-0 d-flex align-items-center justify-content-center">

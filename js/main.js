@@ -1,19 +1,22 @@
-const contenedorInicial = document.getElementById("contenedorContenedorInicial");
-const contenedorConocenos = document.getElementById("contenedorConocenos");
-const contenedorNuestrosPrecios = document.getElementById("contenedorNuestrosPrecios");
-const contenedorContactanos = document.getElementById("contenedorContactanos");
-const contenedorProyectos = document.getElementById("contenedorProyectos");
+history.scrollRestoration = "manual";
 const contenedorContenedorInicial = document.getElementById("contenedorContenedorInicial");
 const nav2 = document.getElementById("nav2");
 const nav1 = document.getElementById("nav1");
 const contenedorNavs = document.getElementById("contenedorNavs");
+const contenedorContenido = document.querySelectorAll(".contenedorContenido");
 window.addEventListener("load",()=>{
     contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px"; 
+    contenedorContenedorInicial.style.visibility = "visible";
 })
 window.addEventListener("resize",()=>{
     contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px";
 })
 
+window.onload = ()=>{
+    if(window.pageYOffset >= nav2.offsetTop){
+        nav2.classList.add("sticky");
+    }
+}
 window.addEventListener("scroll",()=>{
     if(window.pageYOffset <= nav1.offsetHeight){
         nav2.classList.remove("sticky");
@@ -28,23 +31,10 @@ const botonesNav = document.querySelectorAll("nav li button");
 for(let i = 0; i<botonesNav.length; i++){
     botonesNav[i].addEventListener("click",()=>{
         eliminarBotonNavActivo();
-        switch(i){
-            case 0:
-                var posicionContenedorInicial = contenedorInicial.offsetTop - (window.innerHeight * 0.1);
-                window.scrollTo({top:posicionContenedorInicial, behavior:"smooth"});
-                break;
-            case 1:
-                var posicionContenedorConocenos = contenedorConocenos.offsetTop - (window.innerHeight * 0.1);
-                window.scrollTo({top:posicionContenedorConocenos, behavior:"smooth"});
-                break;
-            case 2:
-                var posicionContenedorProyectos = contenedorProyectos.offsetTop - (window.innerHeight * 0.1);
-                window.scrollTo({top:posicionContenedorProyectos,behavior:"smooth"});
-                break;
-            case 3:
-                var posicionContenedorNuestrosPrecios = contenedorNuestrosPrecios.offsetTop - (window.innerHeight * 0.1);
-                window.scrollTo({top:posicionContenedorNuestrosPrecios, behavior:"smooth"});
-                break;
+        if(i != 0){
+            window.scrollTo({top:contenedorContenido[i].offsetTop + 1,behavior:"smooth"});
+        }else{
+            window.scrollTo({top:0, behavior: "smooth"});
         }
         botonesNav[i].classList.add("activo");
     })
@@ -57,55 +47,48 @@ function eliminarBotonNavActivo(){
         }
     }
 }
-
-
-
-const thresholdSmall = 0.2;
-const thresholdMedium = 0.3;
-function getThreshold(){
-    if(window.innerWidth < 768){
-        return thresholdSmall;
-    }else{
-        return thresholdMedium;
+const parteInicialContactanos = document.getElementById("parteInicialContactanos");
+for(let i = 0; i < contenedorContenido.length; i++ ){
+    if(i != 0 && i != contenedorContenido.length - 1){
+        contenedorContenido[i].style.paddingTop = nav2.offsetHeight + "px";
     }
-} 
-const contenedorContenido = document.querySelectorAll(".contenedorContenido");
-const arrayContenedorContenido = Array.from(contenedorContenido);
-const observadorTitulos = new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-        if(entry.isIntersecting){
-            eliminarBotonNavActivo();
-            var indexPru = arrayContenedorContenido.indexOf(entry.target);
-            if(indexPru!=4){
-                botonesNav[indexPru].classList.add("activo");
-            }
-        }
-    });
-},{threshold:getThreshold()});
-arrayContenedorContenido.forEach((contenedor)=>{
-    observadorTitulos.observe(contenedor);
-})
-
-
+}
+parteInicialContactanos.style.paddingTop = nav2.offsetHeight + "px";
 
 const botonSubir = document.getElementById("botonSubir");
 botonSubir.addEventListener("click",()=>{
-    contenedorInicial.scrollIntoView({behavior:"smooth"});
+    window.scrollTo({top:0,behavior:"smooth"});
 })
 
 const botonContactanosNav = document.getElementById("botonContactanosNav");
 botonContactanosNav.addEventListener("click",()=>{
-    var posicionContenedorContactanos = contenedorContactanos.offsetTop - (window.innerHeight * 0.1);
-    window.scrollTo({top: posicionContenedorContactanos, behavior:"smooth"});
     eliminarBotonNavActivo();
+    window.scrollTo({top:contenedorContenido[contenedorContenido.length - 1].offsetTop + 1, behavior:"smooth"});
 })
 
 const barraConoceMas = document.getElementById("barraConoceMas");
 barraConoceMas.addEventListener("click",()=>{
-    var posicionContenedorConocenos = contenedorConocenos.offsetTop - (window.innerHeight * 0.1);
-    window.scrollTo({top: posicionContenedorConocenos, behavior:"smooth"});
-    eliminarBotonNavActivo();
-    botonesNav[1].classList.add("activo");
+    window.scrollTo({top:contenedorContenido[1].offsetTop, behavior:"smooth"});
+})
+const contenedorVideoInicial = document.getElementById("contenedorVideoInicial");
+window.addEventListener("scroll",()=>{
+    contenedorContenido.forEach((contenedor,index)=>{
+        if(index != 0){
+            const rect = contenedor.getBoundingClientRect();
+            if(rect.top <= 0 && window.pageYOffset <= contenedor.offsetHeight + contenedor.offsetTop){
+                eliminarBotonNavActivo();
+                if(index!=4){
+                    const idSeccionActiva = contenedor.getAttribute("data-seccion");
+                    document.querySelector('#menuDesplegable button[data-seccion="'+ idSeccionActiva +'"]').classList.add("activo");
+                }
+            }
+        }else if(index == 0){
+            if(window.pageYOffset <= contenedorVideoInicial.offsetHeight + contenedorVideoInicial.offsetTop){
+                eliminarBotonNavActivo();
+                botonesNav[0].classList.add("activo");
+            }
+        }
+    })
 })
 
 //MENU DESPLEGABLE
@@ -215,6 +198,8 @@ for(let i = 0; i < botonesConocenos.length; i++){
     })
 }
 
+
+//----------------------ANIMACIONES DE LA PAGINA-------------------------------
 var observadorContenido = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
         if(entry.isIntersecting){
@@ -223,22 +208,19 @@ var observadorContenido = new IntersectionObserver((entries)=>{
             }
         }
     })
-});
+},{threshold:1,rootMargin:"-100px 0px"});
 
-imagenConocenos.forEach((imagen)=>{
-    observadorContenido.observe(imagen);
-})
-infoConocenos.forEach((info)=>{
-    observadorContenido.observe(info);
-})
-textoConocenos.forEach((texto)=>{
-    observadorContenido.observe(texto);
-})
-tituloConocenos.forEach((titulo)=>{
-    observadorContenido.observe(titulo);
-})
 titulo.forEach((tituloOb)=>{
     observadorContenido.observe(tituloOb);
+})
+
+
+const rowHerramientas = document.querySelectorAll(".rowHerramientas");
+
+rowHerramientas.forEach((herramienta, index) =>{
+    setTimeout(()=>{
+        observadorContenido.observe(herramienta);
+    }, index * 500);
 })
 
 
