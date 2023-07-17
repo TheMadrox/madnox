@@ -3,14 +3,26 @@ const contenedorConocenos = document.getElementById("contenedorConocenos");
 const contenedorNuestrosPrecios = document.getElementById("contenedorNuestrosPrecios");
 const contenedorContactanos = document.getElementById("contenedorContactanos");
 const contenedorProyectos = document.getElementById("contenedorProyectos");
-
+const contenedorContenedorInicial = document.getElementById("contenedorContenedorInicial");
+const nav2 = document.getElementById("nav2");
+const nav1 = document.getElementById("nav1");
+const contenedorNavs = document.getElementById("contenedorNavs");
 window.addEventListener("load",()=>{
-    contenedorInicial.style.height= window.innerHeight + "px";
+    contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px"; 
 })
 window.addEventListener("resize",()=>{
-    contenedorInicial.style.height= window.innerHeight + "px";
+    contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px";
 })
 
+window.addEventListener("scroll",()=>{
+    if(window.pageYOffset <= nav1.offsetHeight){
+        nav2.classList.remove("sticky");
+        contenedorNavs.style.marginBottom = 0 + "px";
+    }else{
+        nav2.classList.add("sticky");
+        contenedorNavs.style.marginBottom = nav2.offsetHeight + "px";
+    }
+})
 
 const botonesNav = document.querySelectorAll("nav li button");
 for(let i = 0; i<botonesNav.length; i++){
@@ -49,7 +61,7 @@ function eliminarBotonNavActivo(){
 
 
 const thresholdSmall = 0.2;
-const thresholdMedium = 0.6;
+const thresholdMedium = 0.3;
 function getThreshold(){
     if(window.innerWidth < 768){
         return thresholdSmall;
@@ -229,15 +241,16 @@ titulo.forEach((tituloOb)=>{
     observadorContenido.observe(tituloOb);
 })
 
-const nav2 = document.getElementById("nav2");
+
 const seccionesBlancas = document.querySelectorAll(".seccionesBlancas");
 const seccionesOscuras = document.querySelectorAll(".seccionesOscuras");
-
 addEventListener("scroll",()=>{
     if((window.pageYOffset >= seccionesBlancas[0].offsetTop && window.pageYOffset < seccionesOscuras[1].offsetTop) || (window.pageYOffset >=seccionesBlancas[1].offsetTop)){
         nav2.classList.add("oscuro");
+        menuDesplegable.classList.add("oscuro");
     }else{
         nav2.classList.remove("oscuro");
+        menuDesplegable.classList.remove("oscuro");
     }
 })
 

@@ -1,0 +1,3 @@
+<a href="https://commons.wikimedia.org/wiki/File:Inkscape_Logo.svg">Andrew Michael Fitzsimon</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, via Wikimedia Commons
+<a href="https://commons.wikimedia.org/wiki/File:Adobe_Illustrator_CC_icon.svg">™/®Adobe Inc.</a>, Public domain, via Wikimedia Commons
+<a href="https://commons.wikimedia.org/wiki/File:Adobe_Photoshop_CC_icon.svg">Fred the Oyster</a>, Public domain, via Wikimedia Commons
