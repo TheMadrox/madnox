@@ -1,6 +1,8 @@
-RewriteEngine on
-RewriteRule ^index\.php$ / [L,R=301]
-
+RewriteEngine On
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^php/terms\.php$ /legal [L,R]
+RewriteRule ^index\.php$ / [L,R]
+RewriteRule ^legal$ php/terms.php [L]
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/plain
 AddOutputFilterByType DEFLATE text/html
@@ -17,4 +19,7 @@ AddOutputFilterByType DEFLATE image/svg+xml
 AddOutputFilterByType DEFLATE image/x-icon
 AddOutputFilterByType DEFLATE font/ttf
 AddOutputFilterByType DEFLATE application/x-font-opentype
+</IfModule>
+<IfModule mod_headers.c>
+    Header set Cache-Control "max-age=2592000, public"
 </IfModule>

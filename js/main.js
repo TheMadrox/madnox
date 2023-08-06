@@ -1,21 +1,39 @@
-history.scrollRestoration = "manual";
+window.onload = function(){
+    const loadCharge = document.getElementById("loadCharge");
+    loadCharge.classList.add("loaded");
+}
+//history.scrollRestoration = "manual";
+const fontObserver = new FontFaceObserver("Stark","TheNextFont");
+Promise.all(fontObserver.load()).then(function(){
+    console.log("ESTAN CARGADAS");
+});
 const contenedorContenedorInicial = document.getElementById("contenedorContenedorInicial");
 const nav2 = document.getElementById("nav2");
 const nav1 = document.getElementById("nav1");
 const contenedorNavs = document.getElementById("contenedorNavs");
 const contenedorContenido = document.querySelectorAll(".contenedorContenido");
+const contenedorVideoInicial = document.getElementById("contenedorVideoInicial");
 window.addEventListener("load",()=>{
-    contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px"; 
+     if(window.innerHeight > 520){
+        contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px";
+     }else{
+        contenedorContenedorInicial.style.height = "auto";
+     }
+    contenedorVideoInicial.style.height = contenedorContenedorInicial.style.height + nav2.offsetHeight + nav1.offsetHeight + "px";
     contenedorContenedorInicial.style.visibility = "visible";
 })
 window.addEventListener("resize",()=>{
-    contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px";
+    setTimeout(()=>{
+        contenedorContenedorInicial.style.height = "auto";
+        if(window.innerHeight > 520){
+            contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px";
+        }
+        contenedorVideoInicial.style.height = contenedorContenedorInicial.offsetHeight + nav2.offsetHeight + nav1.offsetHeight + "px";
+    },200);
 })
 
-window.onload = ()=>{
-    if(window.pageYOffset >= nav2.offsetTop){
-        nav2.classList.add("sticky");
-    }
+if(window.pageYOffset >= nav2.offsetTop){
+    nav2.classList.add("sticky");
 }
 window.addEventListener("scroll",()=>{
     if(window.pageYOffset <= nav1.offsetHeight){
@@ -70,7 +88,6 @@ const barraConoceMas = document.getElementById("barraConoceMas");
 barraConoceMas.addEventListener("click",()=>{
     window.scrollTo({top:contenedorContenido[1].offsetTop, behavior:"smooth"});
 })
-const contenedorVideoInicial = document.getElementById("contenedorVideoInicial");
 window.addEventListener("scroll",()=>{
     contenedorContenido.forEach((contenedor,index)=>{
         if(index != 0){
@@ -171,7 +188,7 @@ function typeWriteEffect(){
     }
 }
 
-window.onload = typeWriteEffect;
+typeWriteEffect();
 
 const botonesConocenos = document.querySelectorAll(".botonConocenos");
 const infoConocenos = document.querySelectorAll(".infoConocenos");
@@ -200,20 +217,29 @@ for(let i = 0; i < botonesConocenos.length; i++){
 
 
 //----------------------ANIMACIONES DE LA PAGINA-------------------------------
+const subtextoConocenos = document.getElementById("subtextoConocenos");
+const tarjetaQueHacemos = document.querySelectorAll(".tarjetaQueHacemos");
+
 var observadorContenido = new IntersectionObserver((entries)=>{
     entries.forEach((entry)=>{
         if(entry.isIntersecting){
             if(!entry.target.classList.contains("animacion")){
                 entry.target.classList.add("animacion");
+                observadorContenido.unobserve(entry.target);
             }
         }
     })
-},{threshold:1,rootMargin:"-100px 0px"});
+},{threshold:0,rootMargin:"-100px 0px"});
 
 titulo.forEach((tituloOb)=>{
     observadorContenido.observe(tituloOb);
 })
+tarjetaQueHacemos.forEach((tarjeta,index)=>{
+    tarjeta.style.animationDelay = index * .4 + "s";
+    observadorContenido.observe(tarjeta);
+})
 
+observadorContenido.observe(subtextoConocenos);
 
 const rowHerramientas = document.querySelectorAll(".rowHerramientas");
 
@@ -260,3 +286,17 @@ xhrFormulario.onreadystatechange= ()=>{
     }
 }
 xhrFormulario.send();
+
+
+const tarjetaPrecio = document.querySelectorAll(".tarjetaPrecio");
+
+tarjetaPrecio.forEach(tarjeta=>{
+    tarjeta.addEventListener("mouseenter",()=>{
+        tarjetaPrecio.forEach(tarjetaBorrar =>{
+            if(tarjetaBorrar.classList.contains("activa")){
+                tarjetaBorrar.classList.remove("activa");
+            }
+        })
+        tarjeta.classList.add("activa");
+    })
+})

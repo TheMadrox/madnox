@@ -1,0 +1,79 @@
+body{
+    background-color: #2c2f33;
+    color: #F7F7F7;
+}
+#navTerms{
+    background: rgba(255, 255, 255, 0.2);
+}
+#imgLogo{
+    height: 2rem;
+}
+#tipografiaLogo{
+    height: 1.5rem;
+}
+button{
+    background: none;
+    border: none;
+    color: #F7F7F7;
+}
+#contenedorIndice{
+    position: sticky;
+    top: 0;
+}
+.dropDownBotonTerminos{
+    width: 100%;
+    font-size: 1.2rem;
+    background: linear-gradient(to right, #2c2f33 50%, #F7F7F7 50%);
+    background-size: 200% 100%;
+    background-position: 0%;
+    transition: background-position 0.3s ease-out;
+}
+.dropDownBotonTerminos.activo{
+    color: #2c2f33;
+    background-position: 100%;
+}
+.dropDownTermino{
+    width: 100%;
+    position: relative;
+}
+.subTermino{
+    width: 100%;
+    text-align: start;
+    position: relative;
+    overflow: hidden;
+    padding-left: 0;
+}
+.subTermino::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    background: #ffd200;
+    top: 50%;
+    right: 100%;
+    z-index: 1;
+    margin-right: 1rem;
+    transition: all .5s linear;
+}
+.subTermino.activo::before{
+    right: 0;
+}
+.textoSubTermino{
+    position: relative;
+    background:#2c2f33;
+    padding-left: .5rem;
+    padding-right: .5rem;
+    z-index: 2;
+}
+.contenedorSubTerminos{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.contenedorSubTerminos.activo{
+    max-height: 20rem;
+}
+#contenedorInfoTerminos{
+    background-color: #F7F7F7;
+    color: #2c2f33;
+}
