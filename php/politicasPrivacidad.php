@@ -1,8 +1,8 @@
 <h2>Política de Privacidad</h2>
 
-<p>Fecha de vigencia: [Fecha de vigencia]</p>
+<p>Fecha de vigencia: 16 de Octubre de 2023</p>
 
-<p>[Nombre de la empresa] (en adelante, "nosotros", "nuestro" o "la empresa") se compromete a proteger y respetar su privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos, protegemos y compartimos la información personal proporcionada por los usuarios (en adelante, "usted" o "el usuario") a través de nuestro sitio web.</p>
+<p>MadNox (en adelante, "nosotros", "nuestro" o "la empresa") se compromete a proteger y respetar su privacidad. Esta Política de Privacidad describe cómo recopilamos, utilizamos, protegemos y compartimos la información personal proporcionada por los usuarios (en adelante, "usted" o "el usuario") a través de nuestro sitio web.</p>
 
 <h3 class="subtituloTerminos">Información que Recopilamos</h3>
 <p>Para poder contactarnos con usted y brindarle información sobre nuestros servicios, recopilamos los siguientes datos personales:</p>

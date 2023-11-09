@@ -21,5 +21,5 @@ AddOutputFilterByType DEFLATE font/ttf
 AddOutputFilterByType DEFLATE application/x-font-opentype
 </IfModule>
 <IfModule mod_headers.c>
-    Header set Cache-Control "max-age=2592000, public"
+    Header set Cache-Control "max-age=10368000, public"
 </IfModule>

@@ -1,0 +1,43 @@
+/*!
+ * Bootstrap Icons (https://icons.getbootstrap.com/)
+ * Copyright 2019-2023 The Bootstrap Authors
+ * Licensed under MIT (https://github.com/twbs/icons/blob/main/LICENSE.md)
+ */
+
+@font-face {
+  font-display: block;
+  font-family: "bootstrap-icons";
+  src: url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/fonts/bootstrap-icons.woff2?1fa40e8900654d2863d011707b9fb6f2") format("woff2"),
+url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/fonts/bootstrap-icons.woff?1fa40e8900654d2863d011707b9fb6f2") format("woff");
+}
+
+.bi::before,
+[class^="bi-"]::before,
+[class*=" bi-"]::before {
+  display: inline-block;
+  font-family: bootstrap-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  vertical-align: -.125em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.bi-arrow-return-left::before { content: "\f131"; }
+.bi-chat-left-text-fill::before { content: "\f251"; }
+.bi-chevron-compact-down::before { content: "\f279"; }
+.bi-facebook::before { content: "\f344"; }
+.bi-github::before { content: "\f3ed"; }
+.bi-instagram::before { content: "\f437"; }
+.bi-list::before { content: "\f479"; }
+.bi-person-fill::before { content: "\f4da"; }
+.bi-person::before { content: "\f4e1"; }
+.bi-question-circle-fill::before { content: "\f504"; }
+.bi-telephone-fill::before { content: "\f5b4"; }
+.bi-twitter::before { content: "\f5ef"; }
+.bi-whatsapp::before { content: "\f618"; }
+.bi-box-fill::before { content: "\f7d2"; }
+.bi-envelope-at-fill::before { content: "\f84b"; }
+.bi-buildings-fill::before { content: "\f87c"; }

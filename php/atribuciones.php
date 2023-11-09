@@ -6,3 +6,19 @@ Vectors and icons by <a href="https://dazzleui.gumroad.com/l/dazzleiconsfree?ref
 20Gb 7gb
 10GB 5gb
 5GB 3gb
+
+https://www.svgrepo.com/svg/457906/close-round
+https://www.svgrepo.com/svg/457900/check-round
+https://www.svgrepo.com/svg/522086/cross
+
+https://pixabay.com/es/service/license-summary/
+https://pixabay.com/es/photos/galaxia-estrella-infinito-cosmos-3608029/
+
+
+
+//TALVEZ
+https://pixabay.com/es/illustrations/ai-generado-chico-sofá-lofi-velada-8075768/
+https://pixabay.com/es/photos/torre-eiffel-parís-el-río-sena-río-1853365/
+https://pixabay.com/es/photos/puerto-de-cruceros-barcaza-2399630/
+
+salvadormorales@icel.edu.mx

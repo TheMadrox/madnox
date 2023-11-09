@@ -1,18 +1,27 @@
-window.onload = function(){
+/* window.onload = function(){
     const loadCharge = document.getElementById("loadCharge");
     loadCharge.classList.add("loaded");
-}
+} */
 //history.scrollRestoration = "manual";
-const fontObserver = new FontFaceObserver("Stark","TheNextFont");
-Promise.all(fontObserver.load()).then(function(){
-    console.log("ESTAN CARGADAS");
-});
+/* function cargarFuentes(nombre,tipo){
+    return new Promise((resolve,reject)=>{
+        const fuente = new FontFace(nombre, `url(/src/fonts/${nombre}.${tipo})`);
+        fuente.load().then((fuenteCargada)=>{
+            document.fonts.add(fuenteCargada);
+            resolve();
+        }).catch((error)=>{
+            reject(error);
+        })
+    })
+}*/
+
 const contenedorContenedorInicial = document.getElementById("contenedorContenedorInicial");
 const nav2 = document.getElementById("nav2");
 const nav1 = document.getElementById("nav1");
 const contenedorNavs = document.getElementById("contenedorNavs");
 const contenedorContenido = document.querySelectorAll(".contenedorContenido");
 const contenedorVideoInicial = document.getElementById("contenedorVideoInicial");
+
 window.addEventListener("load",()=>{
      if(window.innerHeight > 520){
         contenedorContenedorInicial.style.height = window.innerHeight - nav2.offsetHeight - nav1.offsetHeight + "px";
@@ -112,9 +121,11 @@ window.addEventListener("scroll",()=>{
 const botonMenu = document.getElementById("botonMenu");
 const menuDesplegable = document.getElementById("menuDesplegable");
 const nav = document.querySelector("nav");
+const nav2Background = document.getElementById("nav2-background");
 
 function screenMenuDesplegable(){
     menuDesplegable.classList.remove("activo");
+    nav2Background.classList.remove("scroll-activo");
     if(window.innerWidth < 768){
         menuDesplegable.classList.add("desplegado");
     }else{
@@ -125,11 +136,21 @@ function screenMenuDesplegable(){
 botonMenu.addEventListener("click",()=>{
     if(!menuDesplegable.classList.contains("activo")){
         menuDesplegable.classList.add("activo");
+        nav2Background.classList.add("scroll-activo");
     }else{
         menuDesplegable.classList.remove("activo");
+        nav2Background.classList.remove("scroll-activo");
     }
 })
-
+const seccionesBlancas = document.querySelectorAll(".seccionesBlancas");
+const seccionesOscuras = document.querySelectorAll(".seccionesOscuras");
+addEventListener("scroll",()=>{
+    if((window.pageYOffset >= seccionesBlancas[0].offsetTop && window.pageYOffset < seccionesOscuras[1].offsetTop) || (window.pageYOffset >=seccionesBlancas[1].offsetTop)){
+        nav2Background.classList.add("oscuro");
+    }else{
+        nav2Background.classList.remove("oscuro");
+    }
+})
 var resizeTime;
 addEventListener("load",screenMenuDesplegable());
 addEventListener("resize",()=>{
@@ -137,20 +158,23 @@ addEventListener("resize",()=>{
     resizeTime=requestAnimationFrame(screenMenuDesplegable);
 });
 
-
 var posicionScrollInicial = window.pageYOffset;
 addEventListener("scroll",()=>{
-    posicionScrollActual = window.pageYOffset;
-    if(posicionScrollActual > posicionScrollInicial){
-        menuDesplegable.classList.remove("activo");
-    }else if(posicionScrollActual < posicionScrollInicial){
-        menuDesplegable.classList.add("activo");
+    const posicionScrollActual = window.pageYOffset;
+    if(menuDesplegable.classList.contains("desplegado")){
+        if(posicionScrollActual > posicionScrollInicial){
+            menuDesplegable.classList.remove("activo");
+            nav2Background.classList.remove("scroll-activo");
+        }else if(posicionScrollActual < posicionScrollInicial){
+            menuDesplegable.classList.add("activo");
+            nav2Background.classList.add("scroll-activo");
+        }
     }
     posicionScrollInicial = posicionScrollActual;
 })
 
 //Efecto TypeWrite
-var listaPalabras = ["emprendedores","médicos","estudiantes","músicos","escuelas"];
+var listaPalabras = ["empresarios","médicos","influencers","restaurantes","artistas","escuelas","tiendas","hoteles"];
 var espacioTypeWrite = document.getElementById("textoTypeWrite");
 var numPalabras = 0;
 var numLetras = 0;
@@ -163,16 +187,16 @@ function typeWriteEffect(){
             numLetras++;
             numTypeWriter = numLetras - 1;
             if(numLetras == listaPalabras[numPalabras].length){
-                setTimeout(typeWriteEffect,1000);
+                setTimeout(typeWriteEffect,700);
             }else{
-                setTimeout(typeWriteEffect, 200);
+                setTimeout(typeWriteEffect, 150);
             }
         }else{
             if(numTypeWriter != -1){
                 let nuevoTexto = espacioTypeWrite.innerHTML.substring(0,numTypeWriter);
                 espacioTypeWrite.innerHTML = nuevoTexto;
                 numTypeWriter--;
-                setTimeout(typeWriteEffect,200);
+                setTimeout(typeWriteEffect,100);
             }else{
                 if(numPalabras != listaPalabras.length){
                     numPalabras++;
@@ -250,36 +274,169 @@ rowHerramientas.forEach((herramienta, index) =>{
 })
 
 
-const seccionesBlancas = document.querySelectorAll(".seccionesBlancas");
-const seccionesOscuras = document.querySelectorAll(".seccionesOscuras");
-addEventListener("scroll",()=>{
-    if((window.pageYOffset >= seccionesBlancas[0].offsetTop && window.pageYOffset < seccionesOscuras[1].offsetTop) || (window.pageYOffset >=seccionesBlancas[1].offsetTop)){
-        nav2.classList.add("oscuro");
-        menuDesplegable.classList.add("oscuro");
-    }else{
-        nav2.classList.remove("oscuro");
-        menuDesplegable.classList.remove("oscuro");
-    }
-})
+
 
 const botonEnviarFormulario = document.getElementById("botonEnviarFormulario");
 const contenedorFormularioContacto = document.getElementById("contenedorFormularioContacto");
 const xhrFormulario = new XMLHttpRequest();
+const modalFormulario = document.getElementById("modalFormulario");
 
 xhrFormulario.open("POST","../php/formularioContacto.php");
 xhrFormulario.onreadystatechange= ()=>{
     if(xhrFormulario.readyState == 4 && xhrFormulario.status== 200){
         contenedorFormularioContacto.innerHTML = xhrFormulario.responseText;
         const formulario = document.getElementById("formulario");
+        const telefono = document.getElementById("telefono");
+        const alertaValidacion = formulario.querySelectorAll(".alertaValidacion");
+        const validadoIconos = formulario.querySelectorAll(".validado");
+        
+        function buscarAlerta(busqueda){
+            alertaValidacion.forEach(alerta=>{
+                if(alerta.classList.contains(busqueda)){
+                    alerta.classList.add("activo");
+                }
+            })
+        }
+        function borrarAlerta(busqueda){
+            if(busqueda!=null){
+                alertaValidacion.forEach(alerta=>{
+                    if(alerta.classList.contains(busqueda)){
+                        alerta.classList.remove("activo");
+                    }
+                })
+            }else{
+                alertaValidacion.forEach(alerta=>{
+                    alerta.classList.remove("activo");
+                })
+            }
+        }
+        function moverAlerta(){
+            for(let i=0; i <= alertaValidacion.length; i++){
+                if(alertaValidacion[i].classList.contains("activo")){
+                    window.scrollTo({top:alertaValidacion[i].offsetTop - 128, behavior:"smooth"});
+                    break;
+                }
+            }
+        }
+        function mostrarVerificado(busqueda){
+            validadoIconos.forEach(validado=>{
+                if(validado.classList.contains(busqueda)){
+                    validado.classList.add("activo");
+                }
+            })
+        }
+        function borrarVerificado(busqueda){
+            console.log(busqueda);
+            if(busqueda!= null){
+                validadoIconos.forEach(validado=>{
+                    if(validado.classList.contains(busqueda)){
+                        validado.classList.remove("activo");
+                    }
+                })
+            }else{
+                validadoIconos.forEach(validado=>{
+                    if(!validado.classList.contains("-paquete") && !validado.classList.contains("-negocio")){
+                        validado.classList.remove("activo");
+                    }
+                })
+            }
+        }
+
+        const inputTelefono = window.intlTelInput(telefono,{
+            separateDialCode: true,
+            initialCountry: "auto",
+            geoIpLookup: callback => {
+                fetch("https://ipapi.co/json")
+                .then(res => res.json())
+                .then(data => callback(data.country_code))
+                .catch(() => callback("MX"));
+            },
+            utilsScript: "/build/js/utils.js",
+        });
+
+        telefono.addEventListener("input",()=>{
+            borrarAlerta("-telefono");
+            inputTelefono.isValidNumber()?mostrarVerificado("-telefono"):borrarVerificado("-telefono");
+        })
+
+        const expReg = {
+            nombre : /^([\wÀ-ÿ']+\s?){1,5}$/,
+            apellido: /^([\wÀ-ÿ']+\s?){1,5}$/,
+            email: /^[\w.-]+@[\w]+(\.[\w]+){1,3}$/
+        };
+        const inputNombre = document.getElementById("nombre");
+        const inputApellido = document.getElementById("apellido");
+        const inputEmail = document.getElementById("email");
+        const inputMensaje = document.getElementById("mensaje");
+        const inputTerminos = document.getElementById("terminos");
+        inputTerminos.addEventListener("change",()=>{
+            borrarAlerta("-terminos");
+        })
+        inputNombre.addEventListener("input",()=>{
+            borrarAlerta("-nombre");
+            expReg.nombre.test(inputNombre.value)?mostrarVerificado("-nombre"):borrarVerificado("-nombre");
+        })
+        inputApellido.addEventListener("input",()=>{
+            borrarAlerta("-apellido");
+            expReg.apellido.test(inputApellido.value)?mostrarVerificado("-apellido"):borrarVerificado("-apellido");
+        })
+        inputEmail.addEventListener("input",()=>{
+            borrarAlerta("-email");
+            expReg.email.test(inputEmail.value)?mostrarVerificado("-email"):borrarVerificado("-email");
+        })
+        inputMensaje.addEventListener("input", ()=>{
+            borrarAlerta("-mensaje");
+            inputMensaje.value.length > 15 ? mostrarVerificado("-mensaje"):borrarVerificado("-mensaje");
+        })
+        
         formulario.addEventListener("submit",(event)=>{
             event.preventDefault();
-            const xhr = new XMLHttpRequest();
+            borrarAlerta();
             const formData = new FormData(formulario);
-            xhr.open("POST","../php/uploadContact.php");
-            xhr.send(formData);
-            xhr.onreadystatechange = ()=>{
-                if(xhr.readyState == 4 && xhr.status == 200){
-                    formulario.reset();
+            var validacion = true;
+
+            if(!expReg.nombre.test(formData.get("nombre"))){
+                buscarAlerta("-nombre");
+                validacion = false;
+            }
+            if(!expReg.apellido.test(formData.get("apellido"))){
+                buscarAlerta("-apellido");
+                validacion = false;
+            }
+            if(!expReg.email.test(formData.get("email"))){
+                buscarAlerta("-email");
+                validacion = false;
+            }
+            if(!inputTelefono.isValidNumber()){
+                buscarAlerta("-telefono");
+                validacion = false;
+            }else{
+                formData.set("telefono",inputTelefono.getNumber());
+                console.log("FUNCION " + inputTelefono.getNumber());
+                console.log("valor: " + formData.get("telefono"));
+            }
+            if(formData.get("mensaje").length < 15){
+                buscarAlerta("-mensaje");
+                validacion = false;
+            }
+            if(formData.get("terminos") != "on"){
+                buscarAlerta("-terminos");
+                validacion=false;
+            }
+            if(!validacion){
+                moverAlerta();
+            }else{
+                if(validacion){
+                    const xhr = new XMLHttpRequest();
+                    xhr.open("POST","../php/uploadContact.php");
+                    xhr.send(formData);
+                    xhr.onreadystatechange = ()=>{
+                        if(xhr.readyState == 4 && xhr.status == 200){
+                            formulario.reset();
+                            borrarVerificado();
+                            modalFormulario.classList.add("activo");
+                        }
+                    }
                 }
             }
         });
@@ -287,6 +444,9 @@ xhrFormulario.onreadystatechange= ()=>{
 }
 xhrFormulario.send();
 
+function cerrarModal(){
+    modalFormulario.classList.remove("activo");
+}
 
 const tarjetaPrecio = document.querySelectorAll(".tarjetaPrecio");
 
@@ -300,3 +460,23 @@ tarjetaPrecio.forEach(tarjeta=>{
         tarjeta.classList.add("activa");
     })
 })
+
+function mostrarGlobo(element){
+    const screenWidth = window.innerWidth;
+    let infoServicio = element.querySelector(".infoServicio");
+    let infoRect = infoServicio.getBoundingClientRect();
+    console.log(infoRect.right);
+    console.log("screen: " + screenWidth);
+    if(infoRect.right > screenWidth - 28){
+        infoServicio.style.right = '100%';
+        infoServicio.classList.add("invertido");
+    }else{
+        infoServicio.style.left = '65%';
+        infoServicio.classList.remove("invertido");
+    }
+}
+function ocultarGlobo(element){
+    let infoServicio = element.querySelector(".infoServicio");
+    infoServicio.style.left ='auto';
+    infoServicio.style.right ='auto';
+}

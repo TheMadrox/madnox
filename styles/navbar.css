@@ -1,0 +1,57 @@
+nav{
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    height: 4rem;
+    z-index:3;
+    backdrop-filter: blur(3px);   
+    font-size: .8rem;
+}
+#boton-contacto{
+    border-radius: 2rem;
+    padding: .5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    color: #ffd200;
+    border: 2px #ffd200 solid;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: all .3s ease-in;
+    position: relative;
+    filter: drop-shadow(3px 3px 3px rgba(0,0,0,0.5));
+}
+#boton-contacto:hover{
+    padding-left: .5rem;
+    padding-right: 1.5rem;
+    background-color: #ffd200;
+    color: #F7F7F7;
+}
+#boton-contacto::after{
+    content: "»";
+    color: #F7F7F7;
+    position: absolute;
+    right: -.5rem;
+    top: -2px;
+    height: 2.75rem;
+    width: auto;
+    font-size: 2rem;
+    opacity: 0;
+    transition: all .2s ease-in;
+}
+#boton-contacto:hover::after{
+    right: .15rem;
+    opacity: 1;
+}
+#logo-img{
+    height: 2rem;
+}
+#logo-letras{
+    height: 1.5rem;
+}
+@media(max-width:420px){
+    #logo-img{
+        height: 1.75rem;
+    }
+    #logo-letras{
+        height: 1.25rem;
+    }
+}

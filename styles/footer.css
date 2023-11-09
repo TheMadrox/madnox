@@ -1,0 +1,86 @@
+#footer__space{
+    width: 100%;
+}
+footer{
+    background-color: #333333;
+    /*#796B47*/
+    position: absolute;
+    bottom: 0;
+    z-index: 3;
+    color: #F7F7F7;
+    font-weight: 400;
+    opacity: 0;
+}
+#enlacesFooter{
+    margin-top: .5rem;
+}
+#enlacesFooter h4{
+    font-size: 1rem;
+}
+#enlacesFooter p{
+    font-size: .75rem;
+}
+.redesSociales i{
+    font-size: 2rem;
+}
+#copyLogo{
+    font-size: .7rem;
+}
+.linkFooter{
+    background-image: linear-gradient(to right, #f7971e 50%, #ffffff 50%);
+    color: transparent;
+    font-size: .8rem;
+    padding-bottom: .2rem;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: all 0.5s ease-in-out;
+    position:relative;
+    margin-bottom: .5rem;
+}
+.linkFooter:hover{
+    background-position: 0%;
+}
+.linkFooter::before{
+    content: "";
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    background: #f7971e;
+    transition: all 0.5s ease-in-out;
+}
+.linkFooter:hover::before{
+    width: 100%;
+}
+.columnaFooter{
+    display: inline-flex;
+}
+.contactoFooter{
+    margin: 0;
+    font-size: .8rem;
+    font-weight: 300;
+}
+hr{
+    margin: 0;
+}
+@media(max-width:767px){
+    #logoFooter{
+        height: 2rem;
+    }
+    #textoLogoFooter{
+        height: 2rem;
+    }
+    #enlacesFooter h4{
+        font-size: .8rem;
+    }
+    #copyLogo {
+        font-size: 0.6rem;
+    }
+    .linkFooter{
+        font-size: .7rem;
+    }
+}
