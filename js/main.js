@@ -239,7 +239,6 @@ for(let i = 0; i < botonesConocenos.length; i++){
     })
 }
 
-
 //----------------------ANIMACIONES DE LA PAGINA-------------------------------
 const subtextoConocenos = document.getElementById("subtextoConocenos");
 const tarjetaQueHacemos = document.querySelectorAll(".tarjetaQueHacemos");
@@ -412,8 +411,6 @@ xhrFormulario.onreadystatechange= ()=>{
                 validacion = false;
             }else{
                 formData.set("telefono",inputTelefono.getNumber());
-                console.log("FUNCION " + inputTelefono.getNumber());
-                console.log("valor: " + formData.get("telefono"));
             }
             if(formData.get("mensaje").length < 15){
                 buscarAlerta("-mensaje");

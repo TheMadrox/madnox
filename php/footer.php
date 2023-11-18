@@ -58,13 +58,9 @@
     const footer = document.getElementsByTagName("footer");
     window.addEventListener("load", ()=>{
         footerSpace.style.height = footer[0].offsetHeight + "px";
-        console.log(footer[0].offsetHeight);
-        console.log("NO " + footerSpace.offsetHeight);
         footer[0].style.opacity= 1;
     })
     window.addEventListener("resize", ()=>{
         footerSpace.style.height = footer[0].offsetHeight + "px";
-        console.log(footer[0].offsetHeight);
-        console.log("NO " + footerSpace.offsetHeight);
     })
 </script>

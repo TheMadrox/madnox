@@ -2,6 +2,9 @@
     background-color: #4F4343;
     color: #F7F7F7;
     height: 100%;
+    position: fixed;
+    top: 0;
+    width: 25%;
 }
 .link__dropdown-button{
     width: 100%;

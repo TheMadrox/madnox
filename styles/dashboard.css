@@ -23,6 +23,7 @@ h1{
     font-size: 1.25rem;
     filter: drop-shadow(4px 4px 3px rgba(26,26,26,0.3));
     cursor: pointer;
+    text-decoration: none;
 }
 .dashboard__tarjeta p{
     margin: 0;
@@ -58,10 +59,13 @@ h1{
 .dashboard__tarjeta-contenido{
     outline: 1px solid #ffd200;
     padding: .5rem 1rem .5rem 1rem;
-    
+    display: flex;
+    flex-direction: column;
 }
 .dashboard__tarjeta svg{
     transition: all .3s ease-in;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
 }
 .dashboard__tarjeta:hover svg{
     fill: #ffd200;

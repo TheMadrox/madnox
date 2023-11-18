@@ -22,3 +22,5 @@ https://pixabay.com/es/photos/torre-eiffel-parís-el-río-sena-río-1853365/
 https://pixabay.com/es/photos/puerto-de-cruceros-barcaza-2399630/
 
 salvadormorales@icel.edu.mx
+generar 3 video con synthesia de 3 temas de termo diferentes, 3 imágenes con firefly de 3 temas, y 1 objeto 3D de su maqueta
+

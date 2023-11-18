@@ -1,0 +1,82 @@
+form label{
+    width: 100%;
+}
+form input[type="text"], form textarea,form input[type="date"]{
+    width: 100%;
+    border: 0px solid transparent;
+    border-bottom: 2px solid #1A1A1A;
+}
+form textarea{
+    height: 6rem;
+    resize: none;
+}
+form textarea::placeholder{
+    transform: translateY(4rem);
+}
+form textarea:focus::placeholder, form input:focus::placeholder{
+    color: transparent;
+}
+form .group-form{
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+.formulario-herramientas{
+    justify-content: center;   
+}
+.formulario-herramientas label.col-2.d-flex{
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.formulario-herramientas img{
+    width: 50%;
+    height: 50%;
+}
+.formulario-herramientas input[type="checkbox"]{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.checkbox-container{
+    border: 2px solid #1A1A1A;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 1rem;
+    position: relative;
+}
+.checkbox-container::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: scale(0);
+    background-color: #ffd200;
+    width: .5rem;
+    height: .5rem;
+    border-radius: .5rem;   
+}
+
+.formulario-herramientas label:hover .checkbox-container{
+    background-color: #ccc;
+}
+
+.formulario-herramientas label input[type="checkbox"]:checked ~ .checkbox-container::before{
+    transform: translate(-50%, -50%)  scale(1);
+}
+
+#proyecto-imagen-vista{
+    width: 100%;
+}
+
+form input[type="submit"]{
+    border: 2px solid rgba(26, 26, 26, 0.3);
+    background: #ffd200;
+    color: #1A1A1A;
+    border-radius: 1rem;
+    padding: .25rem .5rem .25rem .5rem;
+    margin:.25rem 0rem 1rem 0rem;
+}
