@@ -20,7 +20,7 @@
             $_SESSION['ultimo_id'] = $row['idProyecto'];
             $contador++;
             $filaGaleria .= '  <div class="col-4 contenedor__proyecto">
-                        <div class="muestra__proyecto d-flex flex-column">
+                        <div onclick="mostrarProyecto(this)" data-id="'.$row['idProyecto'].'" class="muestra__proyecto d-flex flex-column">
                             <img class="muestra__proyecto-imagen" src="'.$row['imagen'].'" alt="imagen de '.$row['titulo'].'"></img>
                             <div class="muestra__proyecto__contenedor-texto">
                                 <p class="muestra__proyecto-texto">'.$row['titulo'].'</p>

@@ -59,7 +59,7 @@
                 </div>
                 <div id="contenedor__informacion" class="col-12 col-md-4">
                     <div id="contenedor__tarjeta">
-                        <div class="d-flex flex-column" id="informacion__tarjeta">
+                        <!-- <div class="d-flex flex-column" id="informacion__tarjeta">
                             <div id="tarjeta-background"></div>
                             <h2 id="informacion_tarjeta-titulo">Web de Ejemplo</h2>
                             <img id="informacion__tarjeta-imagen" src="/src/img/backgroundProyectos.jpg" alt="prueba">
@@ -81,7 +81,7 @@
                                     <div class="col-2 p-2"><img width="100%" height="100%" src="/src/img/cssLogo.svg" alt="" class="imagen-herramienta img-fluid"></div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -129,6 +129,17 @@
             })
         }
         muestraProyectos();
+
+        function mostrarProyecto(proyecto){
+            var idProyecto = proyecto.getAttribute("data-id");
+            fetch("/php/muestraProyecto.php?id="+idProyecto).then(res=>{
+                return res.text();
+            }).then(data=>{
+                document.getElementById("contenedor__tarjeta").innerHTML = data;
+            }).catch(err=>{
+                console.log(err);
+            })
+        }
     </script>
 </body>
 </html>

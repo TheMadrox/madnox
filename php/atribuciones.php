@@ -24,3 +24,7 @@ https://pixabay.com/es/photos/puerto-de-cruceros-barcaza-2399630/
 salvadormorales@icel.edu.mx
 generar 3 video con synthesia de 3 temas de termo diferentes, 3 imágenes con firefly de 3 temas, y 1 objeto 3D de su maqueta
 
+
+
+https://jamboard.google.com/d/1hq_pCvqJkw_w9UFk_iPnMc-gaOpMfvi_ezqkgDUM7zU/viewer?f=0
+https://docs.google.com/presentation/d/1_ZeEFyVG85XbF5c3PQimjz1NHzOYIeoJq_7CNoj50k0/edit?pli=1#slide=id.g29eb31cd347_0_0

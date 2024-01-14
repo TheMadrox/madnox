@@ -126,9 +126,8 @@ body::-webkit-scrollbar-thumb:hover{
     overflow: hidden;
 }
 .muestra__proyecto-imagen{
-    flex: 1;
-    background-image: url(/src/img/backgroundProyectos.jpg);
-    background-size: 100% 100%;
+    width: 100%;
+    height: 76.8671875%;
 }
 .muestra__proyecto__contenedor-texto{
     padding-left: .5rem;
